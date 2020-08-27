@@ -22,7 +22,7 @@ export default function useApolloContext() {
 
 export const createApolloClient = (user) => {
   return new ApolloClient({
-    uri: 'hola.com',
+    uri: 'https://rickandmortyapi.com/graphql',
     headers: { Authorization: null },
     cache: new InMemoryCache(),
   });

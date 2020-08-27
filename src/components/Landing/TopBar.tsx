@@ -1,24 +1,24 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
+
 import Searcher from '../Searcher';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-}));
+const StyledAppBar = styled(AppBar)`
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+`;
 
 interface TopBarProps {}
+
 const TopBar: React.SFC<TopBarProps> = (props) => {
-  const classes = useStyles();
   return (
-    <AppBar className={classes.root} position='static'>
+    <StyledAppBar position='static'>
       <Toolbar>
         <Searcher />
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
 
