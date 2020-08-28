@@ -7,32 +7,38 @@ QueryContext.displayName = 'QueryContext';
 export const QueryProvider = ({ children }) => {
   const [query, setQuery] = useState({
     entity: 'characters',
+    filterOption: 'Type',
     searchString: '',
     filter: {
-      name: false,
-      episode: false,
+      name: true,
+      extra: false,
     },
     page: 1,
     ready: false,
+    modalItem: {
+      open: false,
+      itemID: '',
+    },
   });
 
   const clearQuery = () => {
     setQuery({
       entity: 'characters',
+      filterOption: 'Type',
       searchString: '',
       filter: {
-        name: false,
-        episode: false,
+        name: true,
+        extra: false,
       },
       page: 1,
       ready: false,
     });
   };
-  const setNameFilter = (nameFilter) => {
-    setQuery({ ...query, filter: { ...query.filter, name: nameFilter } });
+  const setNameFilter = (name) => {
+    setQuery({ ...query, filter: { ...query.filter, name } });
   };
-  const setEpisodeFilter = (episodeFilter) => {
-    setQuery({ ...query, filter: { ...query.filter, episode: episodeFilter } });
+  const setExtraFilter = (extra) => {
+    setQuery({ ...query, filter: { ...query.filter, extra } });
   };
 
   const setSearchString = (searchString) => {
@@ -41,11 +47,31 @@ export const QueryProvider = ({ children }) => {
   };
 
   const setEntity = (entity) => {
-    setQuery({ ...query, entity, page: 1 });
+    let filterOption =
+      entity == 'characters'
+        ? 'Type'
+        : entity == 'episodes'
+        ? 'Episode'
+        : 'Dimension';
+    setQuery({
+      ...query,
+      entity,
+      filterOption,
+      page: 1,
+      filter: { name: true, extra: false },
+    });
   };
 
   const nextPage = (page) => {
     setQuery({ ...query, page });
+  };
+
+  const closeModalItem = () => {
+    setQuery({ ...query, modalItem: { open: false, itemID: '' } });
+  };
+
+  const openModalItem = (idemID) => {
+    setQuery({ ...query, modalItem: { open: true, idemID } });
   };
   console.log(query);
   return (
@@ -56,9 +82,11 @@ export const QueryProvider = ({ children }) => {
         clearQuery,
         setEntity,
         setNameFilter,
-        setEpisodeFilter,
+        setExtraFilter,
         setSearchString,
         nextPage,
+        closeModalItem,
+        openModalItem,
       }}
     >
       {children}

@@ -31,7 +31,7 @@ const StyledInput = styled(InputBase)`
   margin-left: 10px;
   padding-right: 10px;
   flex: 1;
-  width: 230;
+  width: 100%;
 `;
 
 const StyledIconSearch = styled(Search)`
@@ -41,7 +41,10 @@ const StyledIconFilter = styled(FilterListOutlined)`
   margin-left: 10px;
   margin-right: 10px;
 `;
-
+const StyledFormControlLabel = styled(FormControlLabel)`
+  margin-left: 6px;
+  margin-right: 2px;
+`;
 const StyledPaper = styled(Paper)`
   display: flex;
   height: 38px;
@@ -50,25 +53,32 @@ const StyledPaper = styled(Paper)`
   align-content: center;
   align-items: center;
 `;
-
+const StyledItemGrid = styled(Grid)`
+  width: 276px;
+  max-width: 280px;
+`;
+const StyledItemFilterGrid = styled(Grid)`
+  min-width: 220px;
+  width: 220px;
+  max-width: 280px;
+`;
 interface SearcherProps {}
 
 const Searcher: React.SFC<SearcherProps> = (props) => {
   const {
     query,
-    setQuery,
     clearQuery,
     setSearchString,
     setEntity,
     setNameFilter,
-    setEpisodeFilter,
+    setExtraFilter,
   } = useQueryContext();
 
   const handleNameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNameFilter(event.target.checked);
   };
-  const handleEpisodeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEpisodeFilter(event.target.checked);
+  const handleExtraFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setExtraFilter(event.target.checked);
   };
 
   const handleString = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +94,7 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
 
   return (
     <StyledGrid container direction='row' justify='center' alignItems='center'>
-      <Grid item>
+      <StyledItemGrid item>
         <StyledPaper>
           <ToggleButtonGroup
             size='small'
@@ -97,8 +107,8 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
             <ToggleButton value='episodes'>Episodes</ToggleButton>
           </ToggleButtonGroup>
         </StyledPaper>
-      </Grid>
-      <Grid item>
+      </StyledItemGrid>
+      <StyledItemGrid item>
         <StyledPaper>
           <StyledIconSearch />
           <StyledInput
@@ -108,12 +118,13 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
             inputProps={{ 'aria-label': 'Search in Rick And Morty' }}
           />
         </StyledPaper>
-      </Grid>
+      </StyledItemGrid>
 
-      <Grid item>
+      <StyledItemFilterGrid item>
         <StyledPaper>
           <StyledIconFilter />
-          <FormControlLabel
+          <Typography>Filter By</Typography>
+          {/* <FormControlLabel
             control={
               <Switch
                 size='small'
@@ -124,21 +135,22 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
               />
             }
             label='Name'
-          />
-          <FormControlLabel
+          /> */}
+          <StyledFormControlLabel
+            label={query.filterOption}
+            labelPlacement='start'
             control={
               <Switch
                 size='small'
-                checked={query.typeFilter}
+                checked={query.filter.extra}
                 color='primary'
-                onChange={handleEpisodeFilter}
-                name='episodeFilter'
+                onChange={handleExtraFilter}
+                name={query.filterOption}
               />
             }
-            label='Episode'
           />
         </StyledPaper>
-      </Grid>
+      </StyledItemFilterGrid>
 
       <Grid item>
         <StyledPaper>
@@ -147,7 +159,7 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
             color='secondary'
             aria-label='clear all'
           >
-            <ClearOutlined />
+            <ClearOutlined color='primary' />
           </IconButton>
         </StyledPaper>
       </Grid>

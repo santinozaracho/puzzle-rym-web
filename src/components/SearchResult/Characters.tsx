@@ -4,14 +4,14 @@ import { gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import GridView from './GridView';
 import useQueryContext from '../../store/QueryContext';
-import ErrorView from './ErrorView';
-import LoadingView from './LoadingView';
+import ErrorView from '../ErrorView';
+import LoadingView from '../LoadingView';
 
 interface CharactersProps {}
 
 export const GET_EPISODES = gql`
-  query Characters($page: Int!, $nameFilter: String) {
-    characters(page: $page, filter: { name: $nameFilter }) {
+  query Characters($page: Int!, $nameFilter: String, $typeFilter: String) {
+    characters(page: $page, filter: { name: $nameFilter, type: $typeFilter }) {
       info {
         next
         count
@@ -24,17 +24,14 @@ export const GET_EPISODES = gql`
     }
   }
 `;
-const StyledContainer = styled(Container)`
-  padding-top: 16px;
-  padding-bottom: 16px;
-`;
 
 const Characters: React.FC<CharactersProps> = (props) => {
   const { query } = useQueryContext();
   const { loading, error, data } = useQuery(GET_EPISODES, {
     variables: {
       page: query.page,
-      nameFilter: query.filter.name ? query.searchString : '',
+      nameFilter: query.filter.extra ? '' : query.searchString,
+      typeFilter: query.filter.extra ? query.searchString : '',
     },
   });
   if (loading) return <LoadingView />;
