@@ -21,6 +21,7 @@ export const GET_LOCATIONS = gql`
         pages
       }
       results {
+        id
         name
         dimension
       }

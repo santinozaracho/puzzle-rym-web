@@ -32,6 +32,10 @@ export const QueryProvider = ({ children }) => {
       },
       page: 1,
       ready: false,
+      modalItem: {
+        open: false,
+        itemID: '',
+      },
     });
   };
   const setNameFilter = (name) => {
@@ -70,8 +74,8 @@ export const QueryProvider = ({ children }) => {
     setQuery({ ...query, modalItem: { open: false, itemID: '' } });
   };
 
-  const openModalItem = (idemID) => {
-    setQuery({ ...query, modalItem: { open: true, idemID } });
+  const openModalItem = (itemID) => {
+    setQuery({ ...query, modalItem: { open: true, itemID } });
   };
   console.log(query);
   return (

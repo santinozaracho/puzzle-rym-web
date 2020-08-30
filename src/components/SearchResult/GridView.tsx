@@ -38,12 +38,12 @@ const StyledCardMedia = styled(CardMedia)`
 
 const GridView: React.FC<GridViewProps> = ({ collectionResult, pages }) => {
   const { openModalItem } = useQueryContext();
-  const openItem = () => openModalItem('hola');
+  const openItem = (id: string) => openModalItem(id);
   return (
     <StyledPaper>
       <Grid container spacing={4}>
         {collectionResult.map((item: any) => (
-          <Grid item key={item.name} xs={12} sm={6} md={4}>
+          <Grid item key={item.id} xs={12} sm={6} md={4}>
             <StyledCard>
               {item.image && (
                 <StyledCardMedia image={item.image} title={item.name} />
@@ -58,8 +58,12 @@ const GridView: React.FC<GridViewProps> = ({ collectionResult, pages }) => {
               </StyledCardContent>
 
               <CardActions>
-                <Button size='small' onClick={openItem} color='primary'>
-                  Open Details
+                <Button
+                  size='small'
+                  onClick={() => openItem(item.id)}
+                  color='primary'
+                >
+                  View Details
                 </Button>
               </CardActions>
             </StyledCard>

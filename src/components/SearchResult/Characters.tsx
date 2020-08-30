@@ -9,7 +9,7 @@ import LoadingView from '../LoadingView';
 
 interface CharactersProps {}
 
-export const GET_EPISODES = gql`
+export const GET_CHARACTERS = gql`
   query Characters($page: Int!, $nameFilter: String, $typeFilter: String) {
     characters(page: $page, filter: { name: $nameFilter, type: $typeFilter }) {
       info {
@@ -18,6 +18,7 @@ export const GET_EPISODES = gql`
         pages
       }
       results {
+        id
         name
         image
       }
@@ -27,7 +28,7 @@ export const GET_EPISODES = gql`
 
 const Characters: React.FC<CharactersProps> = (props) => {
   const { query } = useQueryContext();
-  const { loading, error, data } = useQuery(GET_EPISODES, {
+  const { loading, error, data } = useQuery(GET_CHARACTERS, {
     variables: {
       page: query.page,
       nameFilter: query.filter.extra ? '' : query.searchString,
