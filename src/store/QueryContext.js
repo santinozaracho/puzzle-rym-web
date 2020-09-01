@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * @description Query Context is responsible for Inject the User Query as provider for use as a Hook in all App Context.
+ * @return {provider}
+ */
+
 export const QueryContext = createContext();
 QueryContext.displayName = 'QueryContext';
 

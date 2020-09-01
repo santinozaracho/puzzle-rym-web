@@ -3,6 +3,11 @@ import { ApolloProvider } from '@apollo/client';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import PropTypes from 'prop-types';
 
+/**
+ * @description Apollo Context is responsible for Inject the Client as provider for use with UseQuery Hook.
+ * @return {provider}
+ */
+
 export const ApolloContext = createContext();
 ApolloContext.displayName = 'ApolloContext';
 

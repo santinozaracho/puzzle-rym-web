@@ -5,6 +5,11 @@ import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
 
+/**
+ * @description Locations Component is responsible for Query Locations to API and render the Grid View.
+ * @return {component}
+ */
+
 interface LocationsProps {}
 
 export const GET_LOCATIONS = gql`

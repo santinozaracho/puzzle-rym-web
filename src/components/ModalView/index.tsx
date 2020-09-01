@@ -21,6 +21,9 @@ const StyledPaper = styled(Paper)`
   max-width: 600px;
   max-height: 600px;
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ModalView: React.FC<ModalViewProps> = (props) => {

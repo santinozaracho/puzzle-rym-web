@@ -5,6 +5,11 @@ import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
 
+/**
+ * @description Episodes Component is responsible for Query Episodes to API and render the Grid View.
+ * @return {component}
+ */
+
 interface EpisodesProps {}
 
 export const GET_EPISODES = gql`

@@ -5,6 +5,11 @@ import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
 
+/**
+ * @description Characters Component is responsible for Query Characters to API and render the Grid View.
+ * @return {component}
+ */
+
 interface CharactersProps {}
 
 export const GET_CHARACTERS = gql`
