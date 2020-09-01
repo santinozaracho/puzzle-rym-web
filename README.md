@@ -11,5 +11,6 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ## Captures
-images..
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/landing.jpg?raw=true)
 
