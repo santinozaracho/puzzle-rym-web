@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.5f361e03.chunk.css",
-    "main.js": "/static/js/main.770dc545.chunk.js",
-    "main.js.map": "/static/js/main.770dc545.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.aa29b3d4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.aa29b3d4.js.map",
-    "static/js/2.6e0af07e.chunk.js": "/static/js/2.6e0af07e.chunk.js",
-    "static/js/2.6e0af07e.chunk.js.map": "/static/js/2.6e0af07e.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.bb471517ef367dbfba28a81708d18fa9.js": "/precache-manifest.bb471517ef367dbfba28a81708d18fa9.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.6e0af07e.chunk.js.LICENSE.txt": "/static/js/2.6e0af07e.chunk.js.LICENSE.txt"
+    "main.css": "/puzzle-rym-web/static/css/main.5f361e03.chunk.css",
+    "main.js": "/puzzle-rym-web/static/js/main.87c48669.chunk.js",
+    "main.js.map": "/puzzle-rym-web/static/js/main.87c48669.chunk.js.map",
+    "runtime-main.js": "/puzzle-rym-web/static/js/runtime-main.e2ea1b8b.js",
+    "runtime-main.js.map": "/puzzle-rym-web/static/js/runtime-main.e2ea1b8b.js.map",
+    "static/js/2.bb20dd16.chunk.js": "/puzzle-rym-web/static/js/2.bb20dd16.chunk.js",
+    "static/js/2.bb20dd16.chunk.js.map": "/puzzle-rym-web/static/js/2.bb20dd16.chunk.js.map",
+    "index.html": "/puzzle-rym-web/index.html",
+    "precache-manifest.1838f9d591949e4f7d7099b256966392.js": "/puzzle-rym-web/precache-manifest.1838f9d591949e4f7d7099b256966392.js",
+    "service-worker.js": "/puzzle-rym-web/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/puzzle-rym-web/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.bb20dd16.chunk.js.LICENSE.txt": "/puzzle-rym-web/static/js/2.bb20dd16.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.aa29b3d4.js",
-    "static/js/2.6e0af07e.chunk.js",
+    "static/js/runtime-main.e2ea1b8b.js",
+    "static/js/2.bb20dd16.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.770dc545.chunk.js"
+    "static/js/main.87c48669.chunk.js"
   ]
 }
