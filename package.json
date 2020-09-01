@@ -1,6 +1,7 @@
 {
   "name": "puzzle-rym-web",
   "version": "0.1.0",
+  "homepage": "https://santinozaracho.github.io/puzzle-rym-web/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.1.3",
