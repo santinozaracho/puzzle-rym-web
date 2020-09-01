@@ -12,5 +12,5 @@ You will also see any lint errors in the console.
 
 ## Captures
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/landing.jpg?raw=true)
+![Landing Image](https://github.com/santinozaracho/puzzle-rym-web/blob/master/landing.jpg?raw=true)
 
