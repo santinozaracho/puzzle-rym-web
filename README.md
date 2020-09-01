@@ -11,5 +11,6 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ## Captures
-images..
+
+![Landing Image](https://github.com/santinozaracho/puzzle-rym-web/blob/master/landing.jpg?raw=true)
 
