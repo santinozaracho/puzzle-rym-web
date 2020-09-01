@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container, Modal, Paper, Typography } from '@material-ui/core';
-import { gql, useQuery } from '@apollo/client';
+import { Modal, Paper } from '@material-ui/core';
 import styled from 'styled-components';
 import useQueryContext from '../../store/QueryContext';
+import EntityView from './EntityView';
 
-import ModalBody from './ModalBody';
+/**
+ * @description Modal View is only responsible for mount the Modal and render the Body.
+ * @return {component}
+ */
 
 interface ModalViewProps {}
 
@@ -16,6 +19,8 @@ const StyledPaper = styled(Paper)`
   margin-top: 20px;
   min-width: 300px;
   max-width: 600px;
+  max-height: 600px;
+  overflow-y: scroll;
 `;
 
 const ModalView: React.FC<ModalViewProps> = (props) => {
@@ -26,7 +31,7 @@ const ModalView: React.FC<ModalViewProps> = (props) => {
   return (
     <Modal open={query.modalItem.open} onClose={closeModal}>
       <StyledPaper>
-        <ModalBody />
+        <EntityView />
       </StyledPaper>
     </Modal>
   );

@@ -1,23 +1,17 @@
 import React from 'react';
-import {
-  Container,
-  Modal,
-  Paper,
-  Typography,
-  Card,
-  CardHeader,
-  CardMedia,
-} from '@material-ui/core';
 import { gql, useQuery } from '@apollo/client';
-import styled from 'styled-components';
-import useQueryContext from '../../store/QueryContext';
-import ErrorView from '../ErrorView';
-import LoadingView from '../LoadingView';
+import useQueryContext from '../../../store/QueryContext';
+import ErrorView from '../../ErrorView';
+import LoadingView from '../../LoadingView';
 import CharacterView from './CharacterView';
 import LocationView from './LocationView';
 import EpisodeView from './EpisodeView';
 
-interface ModalBodyProps {}
+/**
+ * @description This component is responsible for make querys to RandM API and render the correct View.
+ * @return {component}
+ */
+interface EntityViewProps {}
 
 const GET_CHARACTER = gql`
   query Character($id: ID!) {
@@ -70,15 +64,15 @@ const GET_LOCATION = gql`
   }
 `;
 
-const StyledPaper = styled(Paper)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  margin-top: 20px;
-  min-width: 300px;
-  max-width: 600px;
-`;
+// const StyledPaper = styled(Paper)`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: auto;
+//   margin-top: 20px;
+//   min-width: 300px;
+//   max-width: 600px;
+// `;
 
 const connectQuery: any = {
   characters: () => GET_CHARACTER,
@@ -88,13 +82,10 @@ const connectQuery: any = {
   episodes: () => GET_EPISODE,
 };
 
-const ModalBody: React.FC<ModalBodyProps> = (props) => {
-  const { query, closeModalItem } = useQueryContext();
+const EntityView: React.FC<EntityViewProps> = (props) => {
+  const { query } = useQueryContext();
 
   let { entity, modalItem } = query;
-  console.log(GET_CHARACTER);
-
-  console.log(connectQuery[entity]());
 
   const { loading, error, data } = useQuery(connectQuery[entity](), {
     variables: {
@@ -117,4 +108,4 @@ const ModalBody: React.FC<ModalBodyProps> = (props) => {
   return <ErrorView />;
 };
 
-export default ModalBody;
+export default EntityView;

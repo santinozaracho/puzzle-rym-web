@@ -1,25 +1,20 @@
 import * as React from 'react';
 import {
-  AppBar,
-  Toolbar,
   Typography,
-  makeStyles,
   Paper,
   IconButton,
   InputBase,
-  Divider,
-  ButtonGroup,
-  Button,
   FormControlLabel,
   Switch,
   Grid,
+  Tooltip,
 } from '@material-ui/core';
 import styled from 'styled-components';
 import { FilterListOutlined, Search, ClearOutlined } from '@material-ui/icons';
 
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 
-import useQueryContext from '../../store/QueryContext';
+import useQueryContext from '../../../store/QueryContext';
 
 const StyledGrid = styled(Grid)`
   padding: 2px 4px;
@@ -70,13 +65,9 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
     clearQuery,
     setSearchString,
     setEntity,
-    setNameFilter,
     setExtraFilter,
   } = useQueryContext();
 
-  const handleNameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNameFilter(event.target.checked);
-  };
   const handleExtraFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setExtraFilter(event.target.checked);
   };
@@ -153,15 +144,17 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
       </StyledItemFilterGrid>
 
       <Grid item>
-        <StyledPaper>
-          <IconButton
-            onClick={clearQueryData}
-            color='secondary'
-            aria-label='clear all'
-          >
-            <ClearOutlined color='primary' />
-          </IconButton>
-        </StyledPaper>
+        <Tooltip title='Clear Search' leaveDelay={300}>
+          <StyledPaper>
+            <IconButton
+              onClick={clearQueryData}
+              color='secondary'
+              aria-label='clear all'
+            >
+              <ClearOutlined color='primary' />
+            </IconButton>
+          </StyledPaper>
+        </Tooltip>
       </Grid>
     </StyledGrid>
   );

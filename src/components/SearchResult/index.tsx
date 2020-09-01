@@ -1,32 +1,24 @@
 import React from 'react';
 import useQueryContext from '../../store/QueryContext';
-import LoadingView from '../LoadingView';
-import ErrorView from '../ErrorView';
 import ModalView from '../ModalView';
-import Characters from './Characters';
-import Locations from './Locations';
-import Episodes from './Episodes';
+import Characters from './QueryComponents/Characters';
+import Locations from './QueryComponents/Locations';
+import Episodes from './QueryComponents/Episodes';
 
 interface SearchResultProps {}
 
+const connectQuery: any = {
+  characters: () => <Characters />,
+
+  locations: () => <Locations />,
+
+  episodes: () => <Episodes />,
+};
+
 const SearchResult: React.FC<SearchResultProps> = (props) => {
   const { query } = useQueryContext();
-  let searchResult = <LoadingView />;
-  switch (query.entity) {
-    case 'characters':
-      searchResult = <Characters />;
-      break;
-    case 'locations':
-      searchResult = <Locations />;
-      break;
-    case 'episodes':
-      searchResult = <Episodes />;
-      break;
+  const searchResult = connectQuery[query.entity]();
 
-    default:
-      searchResult = <ErrorView />;
-      break;
-  }
   return (
     <React.Fragment>
       <ModalView />

@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Typography, makeStyles, Container } from '@material-ui/core';
-import { HomeRounded } from '@material-ui/icons';
+import { Container } from '@material-ui/core';
 import styled from 'styled-components';
 import Pagination from '@material-ui/lab/Pagination';
-import useQueryContext from '../../store/QueryContext';
+import useQueryContext from '../../../store/QueryContext';
 
 const StyledContainer = styled(Container)`
   background-color: #fafafa;
@@ -11,6 +10,8 @@ const StyledContainer = styled(Container)`
   align-items: center;
   justify-content: center;
   padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 `;
 
 interface PaginatorProps {

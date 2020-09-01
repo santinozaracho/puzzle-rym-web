@@ -1,17 +1,17 @@
 import React from 'react';
 import {
-  Container,
-  Modal,
   CardContent,
-  Paper,
   Typography,
   Card,
-  CardHeader,
   CardMedia,
-  Badge,
   Chip,
 } from '@material-ui/core';
 import styled from 'styled-components';
+
+/**
+ * @description This component is responsible for render the fields of Character.
+ * @return {component}
+ */
 
 interface CharacterViewProps {
   character: {
@@ -27,15 +27,15 @@ interface CharacterViewProps {
   };
 }
 
-const StyledPaper = styled(Paper)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  margin-top: 20px;
-  min-width: 300px;
-  max-width: 600px;
-`;
+// const StyledPaper = styled(Paper)`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: auto;
+//   margin-top: 20px;
+//   min-width: 300px;
+//   max-width: 600px;
+// `;
 const StyledCard = styled(Card)`
   height: 100%;
   width: 100%;
@@ -50,6 +50,9 @@ const StyledCardContent = styled(CardContent)`
 
 const StyledCardMedia = styled(CardMedia)`
   padding-top: 56.25%;
+`;
+const StyledChip = styled(Chip)`
+  margin: 5px;
 `;
 
 const CharacterView: React.FC<CharacterViewProps> = (props) => {
@@ -80,7 +83,7 @@ const CharacterView: React.FC<CharacterViewProps> = (props) => {
         <Typography>Location: {location.name}</Typography>
         <Typography>Episodes:</Typography>
         {episode.map((ep, i) => (
-          <Chip key={i} label={ep.name} />
+          <StyledChip key={i} label={ep.name} />
         ))}
       </StyledCardContent>
     </StyledCard>

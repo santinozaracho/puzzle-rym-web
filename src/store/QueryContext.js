@@ -52,9 +52,9 @@ export const QueryProvider = ({ children }) => {
 
   const setEntity = (entity) => {
     let filterOption =
-      entity == 'characters'
+      entity === 'characters'
         ? 'Type'
-        : entity == 'episodes'
+        : entity === 'episodes'
         ? 'Episode'
         : 'Dimension';
     setQuery({
@@ -101,3 +101,7 @@ export const QueryProvider = ({ children }) => {
 export default function useQueryContext() {
   return useContext(QueryContext);
 }
+
+QueryProvider.propTypes = {
+  children: PropTypes.node,
+};

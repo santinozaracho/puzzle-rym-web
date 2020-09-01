@@ -1,13 +1,21 @@
 import * as React from 'react';
-import { Typography, Paper } from '@material-ui/core';
+import { Typography, Paper, Link } from '@material-ui/core';
 import styled from 'styled-components';
-import { HomeRounded } from '@material-ui/icons';
 
 const StyledPaper = styled(Paper)`
-  margin: 30px;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+  min-width: 300px;
   max-width: 600px;
+  padding: 10px;
 `;
+
+/**
+ * @description Welcome Screen with project introduction.
+ * @return {component}
+ */
 
 interface IntroProps {}
 
@@ -24,9 +32,11 @@ const Intro: React.SFC<IntroProps> = (props) => {
         Find anything of Rick and Morty here!!.
       </Typography>
       <Typography variant='h5' align='center' color='textSecondary' paragraph>
-        Something short and leading about the collection below—its contents, the
-        creator, etc. Make it short and sweet, but not too short so folks
-        don&apos;t simply skip over it entirely.
+        This project was built for an Challenge of Puzzle Co. Made by Santino
+        Zaracho on
+        {<Link href='https://github.com/santinozaracho'>GitHub</Link>}, as
+        abstract, this WebApp made in React.js, with Apollo-GraphQL shows you
+        any content of Rick And Morty serie.
       </Typography>
     </StyledPaper>
   );

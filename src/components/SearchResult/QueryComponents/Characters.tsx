@@ -1,11 +1,9 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
 import { gql, useQuery } from '@apollo/client';
-import styled from 'styled-components';
-import GridView from './GridView';
-import useQueryContext from '../../store/QueryContext';
-import ErrorView from '../ErrorView';
-import LoadingView from '../LoadingView';
+import GridView from '../GridView';
+import useQueryContext from '../../../store/QueryContext';
+import ErrorView from '../../ErrorView';
+import LoadingView from '../../LoadingView';
 
 interface CharactersProps {}
 

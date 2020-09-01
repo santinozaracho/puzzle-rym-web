@@ -1,18 +1,11 @@
 import React from 'react';
-import {
-  Container,
-  Modal,
-  CardContent,
-  Paper,
-  Typography,
-  Card,
-  CardHeader,
-  CardMedia,
-  Badge,
-  Chip,
-  Avatar,
-} from '@material-ui/core';
+import { CardContent, Typography, Card, Chip, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
+
+/**
+ * @description This component is responsible for render the fields of Location.
+ * @return {component}
+ */
 
 interface LocationViewProps {
   location: {
@@ -24,15 +17,15 @@ interface LocationViewProps {
   };
 }
 
-const StyledPaper = styled(Paper)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  margin-top: 20px;
-  min-width: 300px;
-  max-width: 600px;
-`;
+// const StyledPaper = styled(Paper)`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: auto;
+//   margin-top: 20px;
+//   min-width: 300px;
+//   max-width: 600px;
+// `;
 const StyledCard = styled(Card)`
   height: 100%;
   width: 100%;
@@ -45,10 +38,9 @@ const StyledCardContent = styled(CardContent)`
   flex-grow: 1;
 `;
 
-const StyledCardMedia = styled(CardMedia)`
-  padding-top: 56.25%;
+const StyledChip = styled(Chip)`
+  margin: 5px;
 `;
-
 const LocationView: React.FC<LocationViewProps> = (props) => {
   let { name, type, created, dimension, residents } = props.location;
   return (
@@ -62,7 +54,7 @@ const LocationView: React.FC<LocationViewProps> = (props) => {
         <Typography>Created: {created}</Typography>
         <Typography>Residents:</Typography>
         {residents.map((res, i) => (
-          <Chip
+          <StyledChip
             key={i}
             variant='outlined'
             avatar={<Avatar src={res.image} />}

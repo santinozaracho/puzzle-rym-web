@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Paper,
-  Typography,
-  Container,
-  LinearProgress,
-} from '@material-ui/core';
+import { Paper, Typography, LinearProgress } from '@material-ui/core';
 import styled from 'styled-components';
 
 const StyledPaper = styled(Paper)`
