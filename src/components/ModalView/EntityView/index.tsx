@@ -11,6 +11,7 @@ import {
   GET_EPISODE,
   GET_LOCATION,
 } from '../../../queries/entityQueries';
+import { ignoredYellowBox } from 'console';
 
 /**
  * @description This component is responsible for make querys to RandM API and render the correct View.
@@ -25,6 +26,20 @@ const connectQuery: any = {
 
   episodes: () => GET_EPISODE,
 };
+const componentSelector = (loading: any, error: any, data: any) => {
+  if (data) {
+    const { character, location, episode } = data;
+
+    if (character) return <CharacterView character={character} />;
+
+    if (location) return <CharacterView character={character} />;
+
+    if (episode) return <CharacterView character={character} />;
+  }
+  if (loading) return <LoadingView />;
+
+  return <ErrorView />;
+};
 
 const EntityView: React.FC<EntityViewProps> = (props) => {
   const {
@@ -36,20 +51,9 @@ const EntityView: React.FC<EntityViewProps> = (props) => {
       id: modalItem.itemID,
     },
   });
-  console.log(entity, modalItem.itemID);
-  console.log(error);
-  console.log(data);
 
-  if (loading) return <LoadingView />;
-  if (error) return <ErrorView />;
-
-  let { character, location, episode } = data;
-
-  if (character) return <CharacterView character={character} />;
-  if (location) return <LocationView location={location} />;
-  if (episode) return <EpisodeView episode={episode} />;
-
-  return <ErrorView />;
+  const componentToRender = componentSelector(loading, error, data);
+  return componentToRender;
 };
 
 export default EntityView;
