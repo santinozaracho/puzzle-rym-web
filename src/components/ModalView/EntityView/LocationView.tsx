@@ -16,16 +16,6 @@ interface LocationViewProps {
     created: string;
   };
 }
-
-// const StyledPaper = styled(Paper)`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: auto;
-//   margin-top: 20px;
-//   min-width: 300px;
-//   max-width: 600px;
-// `;
 const StyledCard = styled(Card)`
   height: 100%;
   width: 100%;
@@ -55,7 +45,7 @@ const LocationView: React.FC<LocationViewProps> = (props) => {
         <Typography>Residents:</Typography>
         {residents.map((res, i) => (
           <StyledChip
-            key={i}
+            key={'Entity-Location-AvatarChip-' + i}
             variant='outlined'
             avatar={<Avatar src={res.image} />}
             label={res.name}
