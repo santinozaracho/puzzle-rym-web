@@ -26,8 +26,8 @@ const GridView: React.FC<GridViewProps> = ({ collectionResult, pages }) => {
     <Container>
       <StyledPaper>
         <Grid container spacing={4}>
-          {collectionResult.map((item: any) => (
-            <ItemView item={item} />
+          {collectionResult.map((item: any, index) => (
+            <ItemView key={'Grid-ItemView-' + index} item={item} />
           ))}
         </Grid>
       </StyledPaper>
