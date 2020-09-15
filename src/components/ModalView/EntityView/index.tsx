@@ -11,7 +11,6 @@ import {
   GET_EPISODE,
   GET_LOCATION,
 } from '../../../queries/entityQueries';
-import { ignoredYellowBox } from 'console';
 
 /**
  * @description This component is responsible for make querys to RandM API and render the correct View.
@@ -32,9 +31,9 @@ const componentSelector = (loading: any, error: any, data: any) => {
 
     if (character) return <CharacterView character={character} />;
 
-    if (location) return <CharacterView character={character} />;
+    if (location) return <LocationView location={location} />;
 
-    if (episode) return <CharacterView character={character} />;
+    if (episode) return <EpisodeView episode={episode} />;
   }
   if (loading) return <LoadingView />;
 
