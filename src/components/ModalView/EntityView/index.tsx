@@ -27,9 +27,9 @@ const connectQuery: any = {
 };
 
 const EntityView: React.FC<EntityViewProps> = (props) => {
-  const { query } = useQueryContext();
-
-  let { entity, modalItem } = query;
+  const {
+    query: { entity, modalItem },
+  } = useQueryContext();
 
   const { loading, error, data } = useQuery(connectQuery[entity](), {
     variables: {
