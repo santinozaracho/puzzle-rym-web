@@ -27,15 +27,6 @@ interface CharacterViewProps {
   };
 }
 
-// const StyledPaper = styled(Paper)`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: auto;
-//   margin-top: 20px;
-//   min-width: 300px;
-//   max-width: 600px;
-// `;
 const StyledCard = styled(Card)`
   height: 100%;
   width: 100%;
@@ -83,7 +74,7 @@ const CharacterView: React.FC<CharacterViewProps> = (props) => {
         <Typography>Location: {location.name}</Typography>
         <Typography>Episodes:</Typography>
         {episode.map((ep, i) => (
-          <StyledChip key={i} label={ep.name} />
+          <StyledChip key={'Entity-Char-EpisodeChip' + i} label={ep.name} />
         ))}
       </StyledCardContent>
     </StyledCard>
