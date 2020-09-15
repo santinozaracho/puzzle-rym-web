@@ -17,15 +17,6 @@ interface EpisodesViewProps {
   };
 }
 
-// const StyledPaper = styled(Paper)`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: auto;
-//   margin-top: 20px;
-//   min-width: 300px;
-//   max-width: 600px;
-// `;
 const StyledCard = styled(Card)`
   height: 100%;
   width: 100%;
@@ -57,7 +48,7 @@ const EpisodesView: React.FC<EpisodesViewProps> = (props) => {
         <Typography>Characters:</Typography>
         {characters.map((char, i) => (
           <StyledChip
-            key={i}
+            key={'Entity-Episode-AvatarChip-' + i}
             variant='outlined'
             avatar={<Avatar src={char.image} />}
             label={char.name}
