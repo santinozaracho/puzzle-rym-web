@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)`
   flex-grow: 1;
   justify-content: center;
   margin: auto;
-  padding: 16px;
+  padding: 10px;
   align-items: center;
 `;
 

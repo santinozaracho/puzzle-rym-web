@@ -8,7 +8,7 @@ import styled from 'styled-components';
  */
 
 const StyledPaper = styled(Paper)`
-  margin: 30px;
+  margin: auto;
 `;
 
 interface LoadingViewProps {}
@@ -22,7 +22,6 @@ const LoadingView: React.FC<LoadingViewProps> = (props) => {
           variant='h2'
           align='center'
           color='textPrimary'
-          gutterBottom
         >
           Loading.
         </Typography>

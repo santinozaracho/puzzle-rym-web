@@ -17,11 +17,12 @@ interface LocationViewProps {
   };
 }
 const StyledCard = styled(Card)`
-  height: 100%;
   width: 100%;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
+  max-height: 580px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledCardContent = styled(CardContent)`

@@ -12,18 +12,20 @@ import EntityView from './EntityView';
 interface ModalViewProps {}
 
 const StyledPaper = styled(Paper)`
-  display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-top: 20px;
+`;
+const StyledModal = styled(Modal)`
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  padding: 10px;
   min-width: 300px;
   max-width: 600px;
+  min-height: 300px;
   max-height: 600px;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 const ModalView: React.FC<ModalViewProps> = (props) => {
@@ -32,11 +34,11 @@ const ModalView: React.FC<ModalViewProps> = (props) => {
   const closeModal = () => closeModalItem();
 
   return (
-    <Modal open={query.modalItem.open} onClose={closeModal}>
+    <StyledModal open={query.modalItem.open} onClose={closeModal}>
       <StyledPaper>
         <EntityView />
       </StyledPaper>
-    </Modal>
+    </StyledModal>
   );
 };
 

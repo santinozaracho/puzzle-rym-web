@@ -28,19 +28,19 @@ interface CharacterViewProps {
 }
 
 const StyledCard = styled(Card)`
-  height: 100%;
   width: 100%;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
+  max-height: 580px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
-const StyledCardContent = styled(CardContent)`
-  flex-grow: 1;
-`;
+const StyledCardContent = styled(CardContent)``;
 
 const StyledCardMedia = styled(CardMedia)`
-  padding-top: 56.25%;
+  height: 200px;
+  width: 100%;
 `;
 const StyledChip = styled(Chip)`
   margin: 5px;
