@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/puzzle-rym-web/precache-manifest.1838f9d591949e4f7d7099b256966392.js"
+  "/puzzle-rym-web/precache-manifest.8dad7ffa12d8104f16d6f5ed1c774caf.js"
 );
 
 self.addEventListener('message', (event) => {
