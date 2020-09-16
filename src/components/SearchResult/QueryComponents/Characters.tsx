@@ -1,9 +1,10 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import GridView from '../GridView';
 import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
+import { GET_CHARACTERS } from '../../../queries/entityQueries';
 
 /**
  * @description Characters Component is responsible for Query Characters to API and render the Grid View.
@@ -11,23 +12,6 @@ import LoadingView from '../../LoadingView';
  */
 
 interface CharactersProps {}
-
-export const GET_CHARACTERS = gql`
-  query Characters($page: Int!, $nameFilter: String, $typeFilter: String) {
-    characters(page: $page, filter: { name: $nameFilter, type: $typeFilter }) {
-      info {
-        next
-        count
-        pages
-      }
-      results {
-        id
-        name
-        image
-      }
-    }
-  }
-`;
 
 const Characters: React.FC<CharactersProps> = (props) => {
   const { query } = useQueryContext();

@@ -115,18 +115,6 @@ const Searcher: React.SFC<SearcherProps> = (props) => {
         <StyledPaper>
           <StyledIconFilter />
           <Typography>Filter By</Typography>
-          {/* <FormControlLabel
-            control={
-              <Switch
-                size='small'
-                checked={query.nameFilter}
-                onChange={handleNameFilter}
-                color='primary'
-                name='nameFilter'
-              />
-            }
-            label='Name'
-          /> */}
           <StyledFormControlLabel
             label={query.filterOption}
             labelPlacement='start'

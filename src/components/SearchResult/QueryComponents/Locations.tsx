@@ -1,9 +1,10 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import GridView from '../GridView';
 import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
+import { GET_LOCATIONS } from '../../../queries/entityQueries';
 
 /**
  * @description Locations Component is responsible for Query Locations to API and render the Grid View.
@@ -11,26 +12,6 @@ import LoadingView from '../../LoadingView';
  */
 
 interface LocationsProps {}
-
-export const GET_LOCATIONS = gql`
-  query Locations($page: Int!, $nameFilter: String, $dimensionFilter: String) {
-    locations(
-      page: $page
-      filter: { name: $nameFilter, dimension: $dimensionFilter }
-    ) {
-      info {
-        next
-        count
-        pages
-      }
-      results {
-        id
-        name
-        dimension
-      }
-    }
-  }
-`;
 
 const Locations: React.FC<LocationsProps> = (props) => {
   const { query } = useQueryContext();

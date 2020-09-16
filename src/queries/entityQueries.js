@@ -50,3 +50,57 @@ export const GET_LOCATION = gql`
     }
   }
 `;
+export const GET_CHARACTERS = gql`
+  query Characters($page: Int!, $nameFilter: String, $typeFilter: String) {
+    characters(page: $page, filter: { name: $nameFilter, type: $typeFilter }) {
+      info {
+        next
+        count
+        pages
+      }
+      results {
+        id
+        name
+        image
+      }
+    }
+  }
+`;
+export const GET_EPISODES = gql`
+  query Episodes($page: Int!, $nameFilter: String, $episodeFilter: String) {
+    episodes(
+      page: $page
+      filter: { name: $nameFilter, episode: $episodeFilter }
+    ) {
+      info {
+        next
+        count
+        pages
+      }
+      results {
+        id
+        episode
+        name
+      }
+    }
+  }
+`;
+export const GET_LOCATIONS = gql`
+  query Locations($page: Int!, $nameFilter: String, $dimensionFilter: String) {
+    locations(
+      page: $page
+      filter: { name: $nameFilter, dimension: $dimensionFilter }
+    ) {
+      info {
+        next
+        count
+        pages
+      }
+      results {
+        id
+        name
+        dimension
+      }
+    }
+  }
+`;

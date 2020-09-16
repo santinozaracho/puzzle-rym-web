@@ -82,7 +82,7 @@ export const QueryProvider = ({ children }) => {
   const openModalItem = (itemID) => {
     setQuery({ ...query, modalItem: { open: true, itemID } });
   };
-  console.log(query);
+
   return (
     <QueryContext.Provider
       value={{

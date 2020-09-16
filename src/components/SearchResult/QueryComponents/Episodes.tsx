@@ -1,9 +1,10 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import GridView from '../GridView';
 import useQueryContext from '../../../store/QueryContext';
 import ErrorView from '../../ErrorView';
 import LoadingView from '../../LoadingView';
+import { GET_EPISODES } from '../../../queries/entityQueries';
 
 /**
  * @description Episodes Component is responsible for Query Episodes to API and render the Grid View.
@@ -12,25 +13,6 @@ import LoadingView from '../../LoadingView';
 
 interface EpisodesProps {}
 
-export const GET_EPISODES = gql`
-  query Episodes($page: Int!, $nameFilter: String, $episodeFilter: String) {
-    episodes(
-      page: $page
-      filter: { name: $nameFilter, episode: $episodeFilter }
-    ) {
-      info {
-        next
-        count
-        pages
-      }
-      results {
-        id
-        episode
-        name
-      }
-    }
-  }
-`;
 const Episodes: React.FC<EpisodesProps> = (props) => {
   const { query } = useQueryContext();
   const { loading, error, data } = useQuery(GET_EPISODES, {

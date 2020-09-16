@@ -23,7 +23,7 @@ const LoadingView: React.FC<LoadingViewProps> = (props) => {
           align='center'
           color='textPrimary'
         >
-          Loading.
+          Loading...
         </Typography>
       </StyledPaper>
     </Backdrop>
